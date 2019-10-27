@@ -19,5 +19,6 @@ public class Book {
 	private Long id;
 	private String code;
 	private String title;
+	private double price;
 	private int available;
 }

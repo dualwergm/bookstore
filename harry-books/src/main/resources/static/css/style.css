@@ -1,0 +1,51 @@
+*{
+	font-family: sans-serif;
+	color: #2b2a2a;
+}
+
+.main-header{
+	display: flex;
+	justify-content: space-between;
+}
+
+button{
+	padding: 2px 10px;
+    border: 1px solid #656363;
+    background-color: #cccccc;
+    font-family: cursive;
+    font-style: italic;
+}
+
+h2{
+	margin-block-end: 0.5em;
+}
+
+.main-container{
+	width: 80%;
+	margin: auto;
+}
+
+.books-item{
+	display: flex;
+	margin-top: 20px;
+}
+
+.item-image{
+	height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    border: 1px solid #9e9e9e;
+    margin-right: 20px;
+}
+
+.item-detail>div:not(:first-child) span{
+	font-size: 14px;
+}
+
+.main-header,
+.item-detail>div:first-child span{
+	font-size: 16px;
+	font-weight: bold;
+}
