@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Harry Books</title>
+<script type="text/javascript" src="/js/jquery/jquery.3.4.1.min.js"></script>
+<script type="text/javascript" src="/js/shopping.js"></script>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+	<div class="main-container">
+		<h2>Harry Books - Tienda Online</h2>
+		<hr>
+		<div class="container-shopping">
+			<div class="main-header">
+				<span>Carrito de compras</span>
+			</div>
+			<table>
+				<thead>
+					<tr>
+						<th align="left" width="10%"></th>
+						<th align="left" width="60%">Libros</th>
+						<th align="left" width="10%">Cantidad</th>
+						<th align="left" width="10%">Valor unitario</th>
+						<th align="left" width="10%">Valor total</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="book : ${shopping.itemList}">
+						<td class="delete"><span>Elimiar</span></td>
+						<td th:text="${book.title}"></td>
+						<td align="center" th:id="${book.id}">
+							<input id="amount" name="amount" type="number" min="1" th:max="${book.available}" step="1" th:value="${book.amount}" size="5"/>
+						</td>
+						<td align="center">
+							<span>$</span><span class="price" th:text="${book.price}"></span>
+						</td>
+						<td align="center">
+							<span>$</span><span class="partial-total" th:text="${book.partialTotal}"></span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="total-footer">
+				<span>Valor total de la compra:  $</span><span th:text="${shopping.total}"></span>
+			</div>
+			<div class="container-actions">
+				<button type="button" id="cancelShopping" name="cancelShopping">Cancelar la compra</button>
+				<button type="button" id="confirmShopping" name="confirmShopping">Confimar la compra</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

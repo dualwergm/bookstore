@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Harry Books</title>
+<script type="text/javascript" src="/js/jquery/jquery.3.4.1.min.js"></script>
 <script type="text/javascript" src="/js/books.js"></script>
 <link rel="stylesheet" href="/css/style.css" />
 </head>
@@ -14,12 +15,12 @@
 		<div >
 			<div class="main-header">
 				<span>Libros Disponibles</span>
-				<button type="button" id="gotoShoppingCar" name="gotoShoppingCar">Ir
+				<button th:if="${!bookList.isEmpty()}" type="button" id="gotoShoppingCar" name="gotoShoppingCar">Ir
 					al carrito de compras</button>
 			</div>
 			<div th:if="${bookList.isEmpty()}" class="books-notfound">
 				<h2>Aún no hay libros registrados, por favor ejecute el script
-					de agregarLibros.sql</h2>
+					de addBooks.sql</h2>
 			</div>
 			<div th:if="${!bookList.isEmpty()}" class="container-books">
 				<div th:each="book : ${bookList}" class="books-item">
@@ -39,7 +40,10 @@
 						<div th:id="${book.id}" th:if="${book.available > 0}">
 							<span>Agregar al carrito</span>
 							<input id="amount" name="amount" type="number" min="1" th:max="${book.available}" step="1" value ="1" size="5"/>
-							<button type="button" name="addToShoppingCar">Agregar</button>
+							<button type="button" name="addToShoppingCar" >Agregar</button>
+						</div>
+						<div class="added" th:id="${book.id}" th:if="${book.available > 0}">
+							<span>Agregados: </span><span>0</span>
 						</div>
 					</div>
 				</div>

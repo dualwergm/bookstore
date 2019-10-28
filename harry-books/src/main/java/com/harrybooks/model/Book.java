@@ -17,7 +17,6 @@ public class Book {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "book_id")
 	private Long id;
-	private String code;
 	private String title;
 	private double price;
 	private int available;

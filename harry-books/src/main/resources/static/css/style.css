@@ -3,6 +3,37 @@
 	color: #2b2a2a;
 }
 
+.error{
+	color: red;
+}
+
+.container-login{
+	display: flex;
+	flex-direction: column;
+	width: 300px;
+    border: 1px solid #c1c1c1;
+    padding: 40px 20px 60px 20px;
+    margin-top: 30px;
+}
+
+.container-login>div{
+	margin-top: 20px;
+}
+
+.container-login input{
+	padding: 5px;
+}
+
+.btn-in{
+	background-color: #36b0cc;
+	padding: 5px 10px;
+	color: #ffffff;
+	font-weight: bold;
+	border: none;
+    height: 30px;
+    width: 150px;
+}
+
 .main-header{
 	display: flex;
 	justify-content: space-between;
@@ -14,6 +45,7 @@ button{
     background-color: #cccccc;
     font-family: cursive;
     font-style: italic;
+    cursor: pointer;
 }
 
 h2{
@@ -21,7 +53,7 @@ h2{
 }
 
 .main-container{
-	width: 80%;
+	width: 60%;
 	margin: auto;
 }
 
@@ -48,4 +80,47 @@ h2{
 .item-detail>div:first-child span{
 	font-size: 16px;
 	font-weight: bold;
+}
+
+.container-shopping{
+	margin-top: 20px;
+}
+
+table{
+	border: 1px solid #2b2a2a;
+	margin-top: 30px;
+}
+
+table td{
+	border-top: 1px solid #2b2a2a;
+	border-right: 1px solid #2b2a2a;
+	font-size: 14px;
+	padding: 7px 5px;
+}
+
+table > thead{
+	background-color: #cccccc;
+}
+
+table th{
+	border-right: 1px solid #2b2a2a;
+	padding: 7px 5px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.total-footer{
+	margin-top: 10px;
+	text-align: right;
+	font-size: 14px;
+}
+
+.container-actions{
+	margin-top: 10px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.delete > span{
+	cursor: pointer;
 }

@@ -1,5 +1,7 @@
 package com.harrybooks.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
@@ -15,7 +17,7 @@ public class UserBookService {
 	}
 	
 	@Transactional
-	public UserBook create(UserBook userBook) {
-		return this.userBookRepository.save(userBook);
+	public List<UserBook> createAll(List<UserBook> userBookList) {
+		return this.userBookRepository.saveAll(userBookList);
 	}
 }
