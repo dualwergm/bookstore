@@ -11,7 +11,7 @@ public class LoginController {
 	@GetMapping(value= {"/login", "/"})
 	public ModelAndView login() {
 		    ModelAndView mav = new ModelAndView();
-		    String errorMessage= "Por ahora el único autorizado es admin / 123";
+		    String errorMessage= "Datos incorrecto, por favor ejecute el Script resources/initScript.sql para poblar la base con usuario y libros!";
 		    mav.addObject("errorMsg", errorMessage);
 		    mav.setViewName("login");
 		    return mav;

@@ -12,7 +12,7 @@
 	flex-direction: column;
 	width: 300px;
     border: 1px solid #c1c1c1;
-    padding: 40px 20px 60px 20px;
+    padding: 30px 20px 60px 20px;
     margin-top: 30px;
 }
 
@@ -22,6 +22,7 @@
 
 .container-login input{
 	padding: 5px;
+	min-width: 200px;
 }
 
 .btn-in{
@@ -55,6 +56,8 @@ h2{
 .main-container{
 	width: 60%;
 	margin: auto;
+	background-color: #f5f5f5;
+    padding: 20px 30px 40px 30px;
 }
 
 .books-item{
@@ -63,13 +66,17 @@ h2{
 }
 
 .item-image{
-	height: 120px;
+	height: 140px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80px;
+    width: 90px;
     border: 1px solid #9e9e9e;
     margin-right: 20px;
+}
+
+.item-detail>div:not(:first-child){
+	margin-top: 7px;
 }
 
 .item-detail>div:not(:first-child) span{
@@ -123,4 +130,9 @@ table th{
 
 .delete > span{
 	cursor: pointer;
+}
+
+.added span:last-child{
+	color: #15de79;
+	font-weight: bold;
 }

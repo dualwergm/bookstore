@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,9 +14,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.harrybooks.model.Book;
+import com.harrybooks.model.User;
 import com.harrybooks.model.UserBook;
 import com.harrybooks.service.BookService;
 import com.harrybooks.service.UserBookService;
+import com.harrybooks.service.UserService;
 import com.harrybooks.util.Utils;
 
 @RestController
@@ -23,8 +27,12 @@ public class UserBookController {
 	
 	@Autowired
 	private UserBookService userBookService;
+	
 	@Autowired
 	private BookService bookService;
+	
+	@Autowired
+	private UserService userService;
 	
 	
 	@GetMapping("/save")
@@ -41,11 +49,14 @@ public class UserBookController {
 		List<Long> bookIds = Utils.stringToLongList(root.path("ids").asText());
 		List<Integer> bookAmounts = Utils.stringToIntegerList(root.path("amounts").asText());
 		List<UserBook> userBookList = new ArrayList<UserBook>();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findByUser(auth.getName());
 		for(Long bookId: bookIds) {
 			UserBook userBook = new UserBook();
 			Book book = bookService.findById(bookId);
 			book.setAvailable(book.getAvailable() - bookAmounts.get(index));
 			userBook.setBook(book);
+			userBook.setUser(user);
 			userBook.setAmount(bookAmounts.get(index));
 			userBookList.add(userBook);
 			index++;

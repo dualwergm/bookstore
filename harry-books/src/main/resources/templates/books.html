@@ -20,7 +20,7 @@
 			</div>
 			<div th:if="${bookList.isEmpty()}" class="books-notfound">
 				<h2>Aún no hay libros registrados, por favor ejecute el script
-					de addBooks.sql</h2>
+					resources/initScript.sql para poblar la base con los libros!</h2>
 			</div>
 			<div th:if="${!bookList.isEmpty()}" class="container-books">
 				<div th:each="book : ${bookList}" class="books-item">
